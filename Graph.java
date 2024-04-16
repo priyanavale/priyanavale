@@ -3,6 +3,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
+import javax.xml.transform.Source;
+
 class Graph1 {
     int[][] adjMatrix;
     int vCount;
@@ -36,15 +38,15 @@ class Graph1 {
 
     void BFS(int start) {
         Queue<Integer> queue = new LinkedList<>();
-        queue.add(start);
+        queue.offer(start);
         visited[start] = true;
         System.out.print("BFS: ");
         while (!queue.isEmpty()) {
-            int current = queue.poll();  //remove element from queue
+            int current = queue.poll();
             System.out.print(current + " ");
             for (int i = 0; i < vCount; i++) {
                 if (adjMatrix[current][i] == 1 && !visited[i]) {
-                    queue.add(i);
+                    queue.offer(i);
                     visited[i] = true;
                 }
             }
@@ -110,7 +112,7 @@ class Graph {
             System.out.println("invalid choice");
         }
     
-    }//while loop
+    }
     
-    }//end of the main fun
-}  //end of graph class
+    }
+}
